@@ -23,9 +23,14 @@ mainSection = driver.find_elements_by_class_name("HeroLedePlusThreeLeadItem-cont
 mainSection.click()
 
 move_to_new_tab("tab2", "https://www.cnn.com/")
-# mainSection = driver.find_elements_by_class_name("zn-banner")[0]
-# mainSection.click()
-
+try:
+    mainSection = driver.find_elements_by_class_name("zn-banner")[0]
+    mainSection.click()
+except Exception as e:
+    mainSection = driver.find_elements_by_class_name("cn-list-hierarchical-xs")[0].find_elements_by_tag_name('li')[0]
+    print(mainSection)
+    mainSection.click()
+    
 move_to_new_tab("tab3", "https://www.foxnews.com/")
 mainSection = driver.find_elements_by_class_name("main-content")[0].find_elements_by_class_name("story-1")[0]
 mainSection.click()
