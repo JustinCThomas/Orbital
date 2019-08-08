@@ -28,7 +28,6 @@ try:
     mainSection.click()
 except Exception as e:
     mainSection = driver.find_elements_by_class_name("cn-list-hierarchical-xs")[0].find_elements_by_tag_name('li')[0]
-    print(mainSection)
     mainSection.click()
     
 move_to_new_tab("tab3", "https://www.foxnews.com/")
@@ -37,4 +36,8 @@ mainSection.click()
 
 move_to_new_tab("tab4", "https://www.bbc.com/")
 mainSection = driver.find_elements_by_class_name("module--promo")[0].find_elements_by_class_name("media-list__item--1")[0]
+mainSection.click()
+
+move_to_new_tab("tab5", "https://www.huffpost.com/")
+mainSection = driver.find_element_by_id("zone-main").find_elements_by_class_name("card__headline__text")[0]
 mainSection.click()
