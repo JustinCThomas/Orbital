@@ -8,6 +8,40 @@ def move_to_new_tab(tab_num, website):
     driver.get(website)
     time.sleep(3)
 
+def open_general(driver):
+    driver.get("https://www.cnbc.com/")
+    mainSection = driver.find_elements_by_class_name("HeroLedePlusThreeLeadItem-container")[0]
+    mainSection.click()
+
+    move_to_new_tab("tab2", "https://www.cnn.com/")
+    try:
+        mainSection = driver.find_elements_by_class_name("zn-banner")[0]
+        mainSection.click()
+    except Exception as e:
+        mainSection = driver.find_elements_by_class_name("cn-list-hierarchical-xs")[0].find_elements_by_tag_name('li')[0]
+        mainSection.click()
+        
+    move_to_new_tab("tab3", "https://www.foxnews.com/")
+    mainSection = driver.find_elements_by_class_name("main-content")[0].find_elements_by_class_name("story-1")[0]
+    mainSection.click()
+
+    move_to_new_tab("tab4", "https://www.bbc.com/")
+    mainSection = driver.find_elements_by_class_name("module--promo")[0].find_elements_by_class_name("media-list__item--1")[0]
+    mainSection.click()
+
+    move_to_new_tab("tab5", "https://www.huffpost.com/")
+    mainSection = driver.find_element_by_id("zone-main").find_elements_by_class_name("card__headline__text")[0]
+    mainSection.click()
+
+
+def open_tech(driver):
+    pass
+
+def open_world(driver):
+    pass
+
+choice = input("What type of news would you like to read? Please enter a number: \n1) General \n2) Tech \n3) World News \nDefault is General\n")
+
 driver = webdriver.Firefox()
 
 try:
@@ -18,26 +52,24 @@ except Exception as e:
     print("Pages may load more slowly.")
     print("Threw exception " + str(e))
 
-driver.get("https://www.cnbc.com/")
-mainSection = driver.find_elements_by_class_name("HeroLedePlusThreeLeadItem-container")[0]
-mainSection.click()
+if choice == "1":
+    open_general(driver)
+elif choice == "2":
+    pass
+elif choice == "3":
+    pass
+else:
+    open_general(driver)
 
-move_to_new_tab("tab2", "https://www.cnn.com/")
-try:
-    mainSection = driver.find_elements_by_class_name("zn-banner")[0]
-    mainSection.click()
-except Exception as e:
-    mainSection = driver.find_elements_by_class_name("cn-list-hierarchical-xs")[0].find_elements_by_tag_name('li')[0]
-    mainSection.click()
-    
-move_to_new_tab("tab3", "https://www.foxnews.com/")
-mainSection = driver.find_elements_by_class_name("main-content")[0].find_elements_by_class_name("story-1")[0]
-mainSection.click()
 
-move_to_new_tab("tab4", "https://www.bbc.com/")
-mainSection = driver.find_elements_by_class_name("module--promo")[0].find_elements_by_class_name("media-list__item--1")[0]
-mainSection.click()
 
-move_to_new_tab("tab5", "https://www.huffpost.com/")
-mainSection = driver.find_element_by_id("zone-main").find_elements_by_class_name("card__headline__text")[0]
-mainSection.click()
+        
+# General
+
+
+
+
+
+# Tech
+
+# World News
