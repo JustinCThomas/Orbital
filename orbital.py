@@ -35,7 +35,13 @@ def open_general(driver):
 
 
 def open_tech(driver):
-    pass
+    driver.get("https://news.ycombinator.com/")
+
+    move_to_new_tab("tab2", "https://techcrunch.com/")
+    mainSection = driver.find_elements_by_class_name("fi-main-block__title")[0]
+    mainSection.click()
+
+    move_to_new_tab("tab3", "https://www.bbc.com/news/technology")
 
 def open_world(driver):
     pass
@@ -55,21 +61,8 @@ except Exception as e:
 if choice == "1":
     open_general(driver)
 elif choice == "2":
-    pass
+    open_tech(driver)
 elif choice == "3":
     pass
 else:
     open_general(driver)
-
-
-
-        
-# General
-
-
-
-
-
-# Tech
-
-# World News
