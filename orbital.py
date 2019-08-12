@@ -46,6 +46,10 @@ def open_tech(driver):
     move_to_new_tab("tab4", "https://www.cnbc.com/technology/")
     mainSection = driver.find_elements_by_class_name("Column-imageDenseModRight")[0]
     mainSection.click()
+
+    move_to_new_tab("tab5", "https://arstechnica.com/tech-policy/")
+
+    move_to_new_tab("tab6", "https://arstechnica.com/information-technology/")
     
 
 def open_world(driver):
