@@ -43,8 +43,28 @@ def open_tech(driver):
 
     move_to_new_tab("tab3", "https://www.bbc.com/news/technology")
 
+    move_to_new_tab("tab4", "https://www.cnbc.com/technology/")
+    mainSection = driver.find_elements_by_class_name("Column-imageDenseModRight")[0]
+    mainSection.click()
+    
+
 def open_world(driver):
-    pass
+    driver.get("https://www.bbc.com/news/world")
+
+    move_to_new_tab("tab2", "https://www.cnn.com/world")
+
+    move_to_new_tab("tab3", "https://www.foxnews.com/world")
+
+
+
+    
+
+# def open_finance(driver):
+#     # driver.get("")
+#     pass
+
+
+
 
 choice = input("What type of news would you like to read? Please enter a number: \n1) General \n2) Tech \n3) World News \nDefault is General\n")
 
@@ -63,6 +83,6 @@ if choice == "1":
 elif choice == "2":
     open_tech(driver)
 elif choice == "3":
-    pass
+    open_world(driver)
 else:
     open_general(driver)
