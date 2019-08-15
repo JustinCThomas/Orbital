@@ -6,7 +6,7 @@ def move_to_new_tab(tab_num, website):
     driver.execute_script(f"window.open('about:blank', '{tab_num}');")
     driver.switch_to.window(tab_num)
     driver.get(website)
-    time.sleep(3)
+    time.sleep(2)
 
 def open_general(driver):
     driver.get("https://www.cnbc.com/")
