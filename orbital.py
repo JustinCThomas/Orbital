@@ -33,7 +33,6 @@ def open_general(driver):
     mainSection = driver.find_element_by_id("zone-main").find_elements_by_class_name("card__headline__text")[0]
     mainSection.click()
 
-
 def open_tech(driver):
     driver.get("https://news.ycombinator.com/")
 
@@ -51,23 +50,12 @@ def open_tech(driver):
 
     move_to_new_tab("tab6", "https://arstechnica.com/information-technology/")
     
-
 def open_world(driver):
     driver.get("https://www.bbc.com/news/world")
 
     move_to_new_tab("tab2", "https://www.cnn.com/world")
 
     move_to_new_tab("tab3", "https://www.foxnews.com/world")
-
-
-
-    
-
-# def open_finance(driver):
-#     # driver.get("")
-#     pass
-
-
 
 
 choice = input("What type of news would you like to read? Please enter a number: \n1) General \n2) Tech \n3) World News \nDefault is General\n")
