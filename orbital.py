@@ -8,7 +8,7 @@ def move_to_new_tab(tab_num, website):
     driver.get(website)
     time.sleep(2)
 
-def handle_error(driver, instructions):
+def handle_error(instructions):
     try:
         exec(instructions)
     except Exception as e:
@@ -17,8 +17,8 @@ def handle_error(driver, instructions):
 
 def open_general(driver):
     driver.get("https://www.cnbc.com/")
-    instructions = 'mainSection = driver.find_elements_by_class_name("HeroLedePlusThreeLeadItem-container")[0].click()'
-    handle_error(driver, instructions)
+    instructions = 'driver.find_elements_by_class_name("HeroLedePlusThreeLeadItem-container")[0].click()'
+    handle_error(instructions)
 
     move_to_new_tab("tab2", "https://www.cnn.com/")
     try:
