@@ -46,27 +46,36 @@ def open_general(driver):
     handle_error(url, instructions)
 
 def open_tech(driver):
-    driver.get("https://news.ycombinator.com/")
+    url = "https://news.ycombinator.com/"
+    driver.get(url)
 
-    move_to_new_tab("tab2", "https://techcrunch.com/")
-    mainSection = driver.find_elements_by_class_name("fi-main-block__title")[0]
-    mainSection.click()
+    url = "https://techcrunch.com/"
+    move_to_new_tab("tab2", url)
+    instructions = 'driver.find_elements_by_class_name("fi-main-block__title")[0].click()'
+    handle_error(url, instructions)
 
-    move_to_new_tab("tab3", "https://www.bbc.com/news/technology")
+    url = "https://www.bbc.com/news/technology"
+    move_to_new_tab("tab3", url)
 
-    move_to_new_tab("tab4", "https://www.cnbc.com/technology/")
-    mainSection = driver.find_elements_by_class_name("Column-imageDenseModRight")[0]
-    mainSection.click()
+    url = "https://www.cnbc.com/technology/"
+    move_to_new_tab("tab4", url)
+    instructions = 'driver.find_elements_by_class_name("Column-imageDenseModRight")[0].click()'
+    handle_error(url, instructions)
 
-    move_to_new_tab("tab5", "https://arstechnica.com/tech-policy/")
+    url = "https://arstechnica.com/tech-policy/"
+    move_to_new_tab("tab5", url)
 
-    move_to_new_tab("tab6", "https://arstechnica.com/information-technology/")
+    url = "https://arstechnica.com/information-technology/"
+    move_to_new_tab("tab6", url)
 
 def open_world(driver):
+    url = "https://www.bbc.com/news/world"
     driver.get("https://www.bbc.com/news/world")
 
+    url = "https://www.cnn.com/world"
     move_to_new_tab("tab2", "https://www.cnn.com/world")
 
+    url = "https://www.foxnews.com/world"
     move_to_new_tab("tab3", "https://www.foxnews.com/world")
 
 
