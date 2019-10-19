@@ -8,37 +8,42 @@ def move_to_new_tab(tab_num, website):
     driver.get(website)
     time.sleep(2)
 
-def handle_error(instructions):
+def handle_error(url, instructions):
     try:
         exec(instructions)
     except Exception as e:
-        print(e)
-
+        print(f"Can't find selected element on {url}")
+        print(f"Error Message: {e}")
 
 def open_general(driver):
-    driver.get("https://www.cnbc.com/")
+    url = "https://www.cnbc.com/"
+    driver.get(url)
     instructions = 'driver.find_elements_by_class_name("HeroLedePlusThreeLeadItem-container")[0].click()'
-    handle_error(instructions)
+    handle_error(url, instructions)
 
-    move_to_new_tab("tab2", "https://www.cnn.com/")
+    url = "https://www.cnn.com/"
+    move_to_new_tab("tab2", url)
     try:
         instructions = 'driver.find_elements_by_class_name("zn-banner")[0].click()'
-        handle_error(instructions)
+        handle_error(url, instructions)
     except Exception as e:
         instructions = 'driver.find_elements_by_class_name("cn-list-hierarchical-xs")[0].find_elements_by_tag_name("li")[0].click()'
-        handle_error(instructions)
+        handle_error(url, instructions)
 
-    move_to_new_tab("tab3", "https://www.foxnews.com/")
+    url = "https://www.foxnews.com/"
+    move_to_new_tab("tab3", url)
     instructions = 'driver.find_elements_by_class_name("main-content")[0].find_elements_by_class_name("story-1")[0].click()'
-    handle_error(instructions)
+    handle_error(url, instructions)
 
-    move_to_new_tab("tab4", "https://www.bbc.com/")
+    url = "https://www.bbc.com/"
+    move_to_new_tab("tab4", url)
     instructions = 'driver.find_elements_by_class_name("module--promo")[0].find_elements_by_class_name("media-list__item--1")[0].click()'
-    handle_error(instructions)
+    handle_error(url, instructions)
 
-    move_to_new_tab("tab5", "https://www.huffpost.com/")
+    url = "https://www.huffpost.com/"
+    move_to_new_tab("tab5", url)
     instructions = 'driver.find_element_by_id("zone-main").find_elements_by_class_name("card__headline__text")[0].click()'
-    handle_error(instructions)
+    handle_error(url, instructions)
 
 def open_tech(driver):
     driver.get("https://news.ycombinator.com/")
