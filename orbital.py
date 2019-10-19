@@ -8,10 +8,17 @@ def move_to_new_tab(tab_num, website):
     driver.get(website)
     time.sleep(2)
 
+def handle_error(instructions):
+    try:
+        exec(instructions)
+    except Exception as e:
+        print(e)
+
+
 def open_general(driver):
     driver.get("https://www.cnbc.com/")
-    mainSection = driver.find_elements_by_class_name("HeroLedePlusThreeLeadItem-container")[0]
-    mainSection.click()
+    instructions = 'driver.find_elements_by_class_name("HeroLedePlusThreeLeadItem-container")[0].click()'
+    handle_error(instructions)
 
     move_to_new_tab("tab2", "https://www.cnn.com/")
     try:
@@ -20,7 +27,7 @@ def open_general(driver):
     except Exception as e:
         mainSection = driver.find_elements_by_class_name("cn-list-hierarchical-xs")[0].find_elements_by_tag_name('li')[0]
         mainSection.click()
-        
+
     move_to_new_tab("tab3", "https://www.foxnews.com/")
     mainSection = driver.find_elements_by_class_name("main-content")[0].find_elements_by_class_name("story-1")[0]
     mainSection.click()
@@ -49,7 +56,7 @@ def open_tech(driver):
     move_to_new_tab("tab5", "https://arstechnica.com/tech-policy/")
 
     move_to_new_tab("tab6", "https://arstechnica.com/information-technology/")
-    
+
 def open_world(driver):
     driver.get("https://www.bbc.com/news/world")
 
